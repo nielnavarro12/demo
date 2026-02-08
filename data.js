@@ -71,7 +71,7 @@ const procedureData = [
   {
     number: "3",
     title: "Issuance of Petition",
-    details: "DDB Authorized Representative will issue Peetition for confinement.",
+    details: "DDB Authorized Representative will issue petition for confinement.",
   },
   {
     number: "4",
@@ -79,3 +79,4 @@ const procedureData = [
     details: "Issued petition for confinement should be filed at RTC",
   },
 ];
+
