@@ -44,7 +44,7 @@ const procedureData = [
               "From the Family/Guardian/CSWDO/ADAC's stating the alleged drug taking habit of the subject.",
           },
            {
-            text: "Proof of affilation or relationship",
+            text: "Proof of Identity/Relationship",
             sub:
               "Valid Identification Card of the applicant. Certificate of Live Birth (Birth Certificate) of the alleged PWUD. Marriage Certificate if the applicant is the spouse. Affidavit of cohabitation For couples who are not yet married.",
           },
@@ -79,5 +79,6 @@ const procedureData = [
     details: "Issued petition for confinement should be filed at RTC",
   },
 ];
+
 
 
