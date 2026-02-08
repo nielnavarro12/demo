@@ -1,6 +1,6 @@
 const modalData = {
     "authrep": {
-        title: "Authorize Representative List",
+        title: "Authorized Representative List",
         headers: ["Name", "Agency/Institution", "Address" , "Contact Number"],
         rows: [
            ["Authorize Rep1", "MEGA TRC", "Nueva Ecija","Phone Number"],
@@ -11,3 +11,4 @@ const modalData = {
         ]
     }
 };
+
