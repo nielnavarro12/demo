@@ -75,8 +75,9 @@ const procedureData = [
   },
   {
     number: "4",
-    title: "Filling",
+    title: "Filing",
     details: "Issued petition for confinement should be filed at RTC",
   },
 ];
+
 
