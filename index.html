@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Treatment and Rehab</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <h1 style="text-align: center">
+        PROCEDURES IN AVAILING PETITION FOR TREATMENT AND REHABILITATION
+      </h1>
+      <div class="header-actions">
+        <div class="search-container">
+          <input
+            type="text"
+            id="procedure-search"
+            placeholder="Search..."
+            autocomplete="off"
+          />
+          <button id="clear-search" class="clear-btn" title="Clear search">
+            &times;
+          </button>
+        </div>
+        <div class="controls">
+          <button class="btn-toggle" id="expand-all">Uncollapse All</button>
+          <button class="btn-toggle" id="collapse-all">Collapse All</button>
+        </div>
+      </div>
+
+      <div id="steps-container"></div>
+    </div>
+  <div id="data-modal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3 id="modal-title">Table View</h3>
+            <button id="close-modal" class="close-btn">&times;</button>
+        </div>
+        <div class="modal-body">
+            <div class="search-container">
+                <input type="text" id="modal-search" placeholder="Search table..." 
+            autocomplete="off">
+                   <button id="clear-searchTbl" class="clear-btn" title="Clear search">
+            &times;
+          </button>
+            </div>
+            <div class="table-wrapper">
+                <table id="dynamic-table">
+                    <thead><tr id="table-head"></tr></thead>
+                    <tbody id="table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <script src="data.js"></script>
+        <script src="authorizerep.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

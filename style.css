@@ -1,0 +1,289 @@
+:root {
+      /* Core Brand */
+    --primary: #1f3a5f;          /* Deep professional blue */
+    --accent: #2563eb;           /* Enterprise blue */
+    --accent-strong: #1d4ed8;
+
+    /* Surfaces */
+    --bg-page: #f5f7fb;          /* Page background */
+    --card-bg: #ffffff;
+    --glass-bg: #ffffff;
+    --border-color: #e2e8f0;
+
+    /* Text */
+    --text-main: #1f2937;        /* Slate-900 */
+    --text-dim: #475569;         /* Slate-600 */
+    --text-muted: #64748b;       /* Slate-500 */
+
+    /* Utility */
+    --highlight: #fde68a;        /* Soft yellow */
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    line-height: 1.5;
+}
+
+.wrapper { width: 100%; max-width: 900px; }
+
+/* Header & Search */
+.header-actions {
+    display: flex;
+    align-items: stretch;
+    gap: 12px;
+    margin-bottom: 25px;
+}
+
+.search-container { flex: 1; position: relative; }
+
+#procedure-search {
+    width: 100%;
+    height: 40px;
+    padding: 0 40px 0 15px;
+ background-color: var(--bg-page);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    outline: none;
+    box-sizing: border-box;
+}
+
+.clear-btn {
+    position: absolute;
+    right: 10px; top: 50%;
+    transform: translateY(-50%);
+    background: none; border: none;
+    color: var(--accent); font-size: 20px;
+    cursor: pointer; display: none;
+    opacity: 0.6;
+}
+
+.controls { display: flex; gap: 8px; }
+
+.btn-toggle {
+    height: 40px;
+    background: transparent;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.75rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.btn-toggle:hover { background: var(--accent); color: var(--primary); }
+
+/* Trigger & Text Stacking - THE FIX IS HERE */
+.step-trigger, .nested-trigger {
+    width: 100%;
+    padding: 14px 18px;
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: row; /* Main layout: Number | Text Column | Chevron */
+    align-items: center; 
+    cursor: pointer;
+    color: var(--text-main);
+}
+
+.no-click { cursor: default !important; }
+
+.trigger-text-container {
+    display: flex;
+    flex-direction: column; /* Force Title and Subtext to stack vertically */
+    align-items: flex-start;
+    flex: 1;
+    text-align: left;
+    gap: 4px;
+    width: 100%; /* Ensure it takes available space */
+}
+
+.Text { 
+    display: block; /* Ensures it acts as a line block */
+    font-size: .9rem; 
+    font-weight: 700; 
+    color: var(--text-main); /* Pure white for readability */
+    width: 100%;
+}
+
+.info-wrapper {
+    display: flex;
+    flex-direction: row; /* Icon and text side-by-side */
+    align-items: flex-start;
+    gap: 8px;
+    width: 100%;
+}
+
+.info-icon {
+    width: 14px;
+    height: 14px;
+    fill: var(--accent);
+    flex-shrink: 0;
+    margin-top: 3px; /* Align with first line of subtext */
+}
+
+.subText { 
+    font-size: 0.8rem; 
+    color: var(--text-dim); 
+    display: block;
+    line-height: 1.4;
+}
+
+.step-number {
+    flex-shrink: 0;
+    background: var(--accent-strong);
+    color: #ffffff;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;           /* Perfect circle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 16px;
+
+    font-size: 1rem;              /* Bigger, readable number */
+    font-weight: 700;
+    line-height: 1;
+     box-shadow: 0 4px 10px rgba(37, 99, 235, 0.35);
+}
+
+/* Accordion Logic */
+.step-item, .nested-accordion {
+    background: var(--glass-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.step-item.active { border-color: var(--accent); box-shadow: 0 0 15px rgba(0, 212, 255, 0.1); }
+
+.step-content-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.active > .step-content-wrapper { grid-template-rows: 1fr; }
+
+.step-content, .nested-content {
+    min-height: 0;
+    visibility: hidden;
+    transition: visibility 0.4s;
+}
+
+.active > .step-content-wrapper > .step-content,
+.active > .step-content-wrapper > .nested-content {
+    visibility: visible;
+    padding: 15px 20px 20px 45px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* Yellow Highlight for Search */
+.highlight { 
+    background: var(--highlight); 
+    color: #000; 
+    font-weight: bold; 
+    border-radius: 2px; 
+    padding: 0 2px;
+}
+
+.chevron { margin-left: auto; transition: transform 0.4s; color: var(--accent); }
+.active > button > .chevron { transform: rotate(180deg); }
+
+ul { list-style: none; padding: 0; margin: 10px 0; }
+li { margin-bottom: 12px; position: relative; padding-left: 20px; }
+li::before { content: "•"; position: absolute; left: 0; color: var(--accent); }
+
+[data-level="2"], [data-level="3"] { margin-left: 10px; border-left: 2px solid var(--border-color); }
+/* Modal Overlay */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0; top: 0;
+    width: 100%; height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: var(--card-bg);
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    width: 80%;
+    max-width: 800px;
+    color: var(--text-main);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.close-btn {
+    background: none; border: none;
+    color: var(--accent); font-size: 28px;
+    cursor: pointer;
+}
+
+/* Table Styling */
+.table-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-top: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+}
+
+th {
+    background-color: var(--bg-page);
+    color: black;
+    text-align: left;
+    padding: 12px;
+    position: sticky; top: 0;
+}
+
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+tr:hover { background: rgba(0, 212, 255, 0.05); }
+
+#modal-search {
+    width: 100%;
+    height: 40px;
+    padding: 0 40px 0 15px;
+   background-color: var(--bg-page);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-main);
+    outline: none;
+    box-sizing: border-box;
+}
+/* Link styling inside accordion */
+.modal-link {
+    color: var(--accent);
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: bold;
+}
